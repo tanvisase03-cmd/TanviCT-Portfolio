@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanvi Sase | Mechanical Engineer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #00d2ff);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(15px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 800; color: #00d2ff; letter-spacing: 2px; }
+
+        .nav-links { display: flex; list-style: none; }
+
+        .nav-links li { margin-left: 30px; }
+
+        .nav-links li a {
+            color: #ddd;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links li a:hover, .nav-links li a.active {
+            color: #00d2ff;
+        }
+
+        /* --- SECTION CONTROL --- */
+        section {
+            display: none;
+            padding: 120px 10% 60px;
+            min-height: 100vh;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        section.active-section { display: block; }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* --- HOME SECTION --- */
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #00d2ff;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+        }
+
+        .highlight { color: #00d2ff; text-shadow: 0 0 5px rgba(0,210,255,0.3); }
+        h1 { font-size: 3.5rem; line-height: 1.2; }
+
+        .social-btns {
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .s-btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .linkedin { background: #0077b5; }
+        .github { background: #333; border: 1px solid #555; }
+        .s-btn:hover { transform: translateY(-3px); filter: brightness(1.2); }
+
+        /* --- GENERAL CARDS & TEXT --- */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            margin-bottom: 20px;
+        }
+
+        .section-title { font-size: 2.5rem; margin-bottom: 40px; border-bottom: 3px solid #00d2ff; display: inline-block; }
+
+        /* Testimonials */
+        blockquote {
+            font-style: italic;
+            font-size: 1.2rem;
+            border-left: 4px solid #00d2ff;
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+        blockquote span {
+            display: block;
+            font-style: normal;
+            font-weight: 700;
+            margin-top: 10px;
+            color: #00d2ff;
+        }
+
+        /* --- SKILLS BARS --- */
+        .skill-item { margin-bottom: 20px; }
+        .progress-bar { background: rgba(255,255,255,0.1); border-radius: 10px; height: 12px; width: 100%; margin-top: 8px; }
+        .progress { background: #00d2ff; height: 100%; border-radius: 10px; box-shadow: 0 0 10px #00d2ff; }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">TANVI.</div>
+        <ul class="nav-links">
+            <li><a onclick="showSection('home')" id="link-home" class="active">Home</a></li>
+            <li><a onclick="showSection('about')" id="link-about">About</a></li>
+            <li><a onclick="showSection('skills')" id="link-skills">Skills</a></li>
+            <li><a onclick="showSection('projects')" id="link-projects">Projects</a></li>
+            <li><a onclick="showSection('certificates')" id="link-certificates">Certificates</a></li>
+            <li><a onclick="showSection('references')" id="link-references">References</a></li>
+            <li><a onclick="showSection('contact')" id="link-contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="active-section">
+        <div class="hero-container">
+            <div class="hero-image">
+                <img src="Tanvi-photo.jpeg" alt="Tanvi Sase">
+            </div>
+            <div class="hero-content">
+                <h1>Hi, I'm <br><span class="highlight">Tanvi Sase</span></h1>
+                <p style="font-size: 1.4rem; margin-top: 10px;">Mechanical Engineering Student @ MITAOE</p>
+                
+                <div class="social-btns">
+                    <a href="https://www.linkedin.com/in/tanvi-sase-73650b406" target="_blank" class="s-btn linkedin">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/tanvisase03-cmd" target="_blank" class="s-btn github">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+
+                <a href="Tanvi Sase resume.pdf" class="s-btn" style="background: #00d2ff; color: #000; margin-top: 20px; width: fit-content;" download>
+                    <i class="fas fa-file-download"></i> Download Resume
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="card">
+            <p>I am Tanvi Sase, I am a curious and dedicated learner who believes in continuously improving technical knowledge and practical skills. Along with academics, I am interested in developing creativity, problem-solving abilities, and teamwork skills through projects and hands-on activities. I enjoy learning new technologies and understanding how engineering can create innovative solutions for real-world challenges.
+
+During my first year, I have gained exposure to fundamental engineering concepts, workshop practices, manufacturing processes, and technical drawing. I am also exploring software tools and technologies that can support my future journey in mechanical engineering, design, and product development. My goal is to build a strong foundation in engineering and grow into a skilled professional who can contribute to the field of mechanical engineering with innovation, dedication, and continuous learning.</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">My Skills</h2>
+        <div class="card">
+            <div class="skill-item"><span>Python & C</span><div class="progress-bar"><div class="progress" style="width: 85%;"></div></div></div>
+            <div class="skill-item"><span>Fusion 360 / AutoCAD</span><div class="progress-bar"><div class="progress" style="width: 80%;"></div></div></div>
+            <div class="skill-item"><span>Web Tech (HTML/CSS)</span><div class="progress-bar"><div class="progress" style="width: 90%;"></div></div></div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div class="card">
+                <h3>Automatic Smart Dustbin</h3>
+                <p>An IoT solution utilizing ultrasonic sensors for touchless waste management.</p>
+            </div>
+            <div class="card">
+                <h3>Smart Supplier Bot</h3>
+                <p>An automated robotic assistant designed for warehouse material handling.</p>
+            </div>
+            <div class="card">
+                <h3>Automatic Street Lamp</h3>
+                <p>An automated street night lamp. A Smart lighting system using sensors to detect ambient light levels</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates">
+        <h2 class="section-title">Certifications</h2>
+        <div class="card" style="display: flex; flex-wrap: wrap; gap: 10px;">
+           <a href="Claude101.jpeg"> <span class="highlight">● Claude 101</span> </a>
+           <a href="AI Fluency For Students.jpeg"> <span class="highlight">● AI Fluency for Students</span> </a>
+            <a href="AI For Nonprofits.jpeg"> <span class="highlight">● AI Fluency for Non profits</span> </a>
+           <a href="AI  Frm and Foundations.jpeg"> <span class="highlight">● AI Framework and Foundations</span> </a>
+           <a href="Nasscom Certificate Tanvi.pdf"> <span class="highlight">● Nasscom certificate</span> </a>
+           <a href="Fusion 360.jpeg"> <span class="highlight">● Fusion 360</span> </a>
+           
+        </div>
+    </section>
+
+    <section id="references">
+        <h2 class="section-title">Professor Testimonials</h2>
+        <div class="card">
+            <blockquote>
+                “Tanvi is a highly motivated student who consistently shows great curiosity in mechanical automation. Her ability to integrate software with hardware is commendable.”
+                <span>- Prafull Hatte, MITAOE</span>
+            </blockquote>
+            <blockquote>
+                “I am pleased to recommend Tanvi, a dedicated and hardworking first-year B.Tech Mechanical Engineering student at MIT Academy of Engineering (MITAOE). She has shown strong analytical thinking, curiosity in mathematics, and sincerity in her academic work, especially in calculus and problem-solving.”
+                <span>- Dr. Priti Shinde</span>
+            </blockquote>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="card">
+            <p><i class="fas fa-envelope"></i> tanvisase03@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +91 9405487178</p>
+        </div>
+        <div class="social-btns">
+                    <a href="https://www.linkedin.com/in/tanvi-sase-73650b406" target="_blank" class="s-btn linkedin">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/tanvisase03-cmd" target="_blank" class="s-btn github">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+    </section>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(sec => sec.classList.remove('active-section'));
+
+            document.getElementById(sectionId).classList.add('active-section');
+
+            const links = document.querySelectorAll('.nav-links a');
+            links.forEach(link => link.classList.remove('active'));
+            document.getElementById('link-' + sectionId).classList.add('active');
+            
+            window.scrollTo(0, 0);
+        }
+    </script>
+
+</body>
+</html>
